@@ -2,14 +2,14 @@ var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
 var playerAttack = 10;
 
-var enemyName = "Dr Doofenschmirtz";
+var enemyNames = ["Dr Doofenschmirtz", "Roborto", "Kanine Unit"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
 var playerMoney = 10;
 
 //this creates a function named "fight"
-var fight = function() {
+var fight = function(enemyName) {
     window.alert("Welcome to the Robot Gladiators!");
     //prompt player to skip or fight
     var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
@@ -17,17 +17,17 @@ var fight = function() {
     if (promptFight === "fight"|| promptFight === "FIGHT") {
         enemyHealth = enemyHealth - playerAttack;
         console.log(
-            playerName + "attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health left.");
+            playerName + "attacked " + enemyName + ". " + enemyNames + " now has " + enemyHealth + " health left.");
         //check enemy's health
         if (enemyHealth <= 0) {
             window.alert(enemyHealth + " has died!");
         } else {
-            window.alert(enemyName + " still has " + enemyHealth + " health left.")
+            window.alert(enemyNames + " still has " + enemyHealth + " health left.")
         }
         // remove player's health by subtracting the amount set in the enemyAttack variable
         playerHealth = playerHealth - enemyAttack;
         console.log(
-            enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
+            enemyNames + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
         );
         // check player's health
         if (playerHealth <= 0) {
@@ -48,4 +48,6 @@ var fight = function() {
         window.alert("You need to choose a valid option. Try again!");
         }
 };
-fight()
+for(var i = 0; i < enemyNames.length; i++) {
+    fight(enemyNames[i]);
+}

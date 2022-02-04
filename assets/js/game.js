@@ -8,15 +8,6 @@ var enemyAttack = 12;
 
 var playerMoney = 10;
 
-var startGame = function() {
-  for (var i = 0; i < enemyNames.length; i++) {
-    
-  }
-
-  // after the loop ends, player is either out of health or enemies to fight, so run the endGame function
-  endGame();
-};
-
 //this creates a function named "fight"
 var fight = function(enemyName) {
     while (playerHealth > 0 && enemyHealth > 0) {
@@ -96,4 +87,23 @@ var endGame = function() {
   } else {
     window.alert("Thank you for playing Robot Gladiators! Come back soon!");
   }
+};
+var shop = function() {
+  if (playerHealth > 0 && i < enemyNames.length - 1) {
+    //does player want to use shop
+    var storeConfirm = window.confirm("The fight is over, would you like to visit the store before the next fight?");
+    //if yes, take to store
+    if (storeConfirm) {
+    shop();
+    }
+  }
+};
+
+var startGame = function() {
+  for (var i = 0; i < enemyNames.length; i++) {
+    
+  }
+
+  // after the loop ends, player is either out of health or enemies to fight, so run the endGame function
+  endGame();
 };
